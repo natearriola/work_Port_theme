@@ -1,0 +1,413 @@
+/***
+FONTS 
+*/
+@import url("https://fonts.googleapis.com/css?family=Lato|Old+Standard+TT:400,700");
+/*** 
+VAR
+*/
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Old Standard tt";
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: #292929;
+  height: 100%;
+  width: 100%;
+  font-size: 12px;
+}
+
+/***************
+HEADER
+***/
+body header {
+  z-index: 1;
+  display: block;
+  height: 40px;
+  padding: 1rem;
+  left: 0;
+  background-color: #292929;
+  top: 0;
+  right: 0;
+  position: fixed;
+  border-bottom: 1px solid #CCB08D;
+}
+
+body nav {
+  position: fixed;
+  z-index: 4;
+}
+
+body nav a {
+  text-decoration: none;
+  color: #022840;
+  -webkit-transition: color 0.3 ease;
+  transition: color 0.3 ease;
+}
+
+body nav a:hover {
+  color: #8C4227;
+}
+
+body nav .menuToggle {
+  display: block;
+  position: relative;
+  top: 30px;
+  left: 40px;
+  z-index: 1;
+}
+
+body nav .menuToggle input {
+  display: block;
+  width: 40px;
+  height: 32px;
+  position: absolute;
+  top: -25px;
+  left: -20px;
+  cursor: pointer;
+  opacity: 0;
+  /* hide this */
+  z-index: 2;
+  /* and place it over the hamburger */
+}
+
+body nav .menuToggle span {
+  display: block;
+  height: 3px;
+  margin-bottom: 5px;
+  position: relative;
+  background: #ffffff;
+  z-index: 1;
+  -webkit-transform-origin: 4px 0px;
+          transform-origin: 4px 0px;
+  width: 33px;
+  bottom: 20px;
+  right: 20px;
+  -webkit-transition: all 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease, -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+  transition: all 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease, -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), all 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), all 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease, -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+}
+
+body nav .menuToggle .two {
+  width: 24px;
+}
+
+body nav .menuToggle .three {
+  width: 14px;
+}
+
+body nav .menuToggle span:first-child {
+  -webkit-transform-origin: 0% 0%;
+          transform-origin: 0% 0%;
+}
+
+body nav .menuToggle span:nth-last-child(2) {
+  -webkit-transform-origin: 0% 100%;
+          transform-origin: 0% 100%;
+}
+
+body nav .menuToggle input:checked ~ span {
+  opacity: 1;
+  -webkit-transform: rotate(45deg) translate(-4px, -1px);
+          transform: rotate(45deg) translate(-4px, -1px);
+  background: #292929;
+}
+
+body nav .menuToggle input:checked ~ span:nth-last-child(3) {
+  opacity: 0;
+  -webkit-transform: rotate(0deg) scale(0.2, 0.2);
+          transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+body nav .menuToggle input:checked ~ span:nth-last-child(2) {
+  -webkit-transform: rotate(-45deg) translate(0, -1px);
+          transform: rotate(-45deg) translate(0, -1px);
+  width: 33px;
+}
+
+body nav .menuToggle input:checked ~ ul {
+  -webkit-transform: none;
+          transform: none;
+}
+
+body nav .menu {
+  position: absolute;
+  width: 300px;
+  margin: -100px 0 0 -60px;
+  padding: 50px;
+  padding-top: 125px;
+  background: #84A9BF;
+  list-style-type: none;
+  /* to stop flickering of text in safari */
+  -webkit-transform-origin: 0% 0%;
+          transform-origin: 0% 0%;
+  -webkit-transform: translate(-100%, 0);
+          transform: translate(-100%, 0);
+  -webkit-transition: -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+  transition: -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), -webkit-transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+}
+
+body nav .menu li {
+  padding: 10px 0;
+  font-family: "lato";
+  font-size: 1.8rem;
+}
+
+@media (min-width: 900px) {
+  body nav .menu {
+    margin: -100px 0 0 -60px;
+  }
+}
+
+body .logo {
+  display: block;
+  position: absolute;
+  top: 7px;
+  right: 40px;
+  z-index: 1;
+  color: white;
+  font-size: 12px;
+}
+
+body .logo h1 {
+  font-weight: 400;
+}
+
+body .desktop-menu {
+  display: none;
+  cursor: pointer;
+}
+
+@media (min-width: 1200px) {
+  body .desktop-menu {
+    font-family: "lato";
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    -webkit-transform: translateX(-50);
+            transform: translateX(-50);
+  }
+}
+
+body .desktop-menu a {
+  font-size: 18px;
+}
+
+@media (min-width: 1200px) {
+  body .desktop-menu a {
+    display: inline-block;
+    text-decoration: none;
+    color: #CCB08D;
+    padding: 0 25px;
+  }
+}
+
+@media (min-width: 1200px) {
+  body .desktop-menu a li {
+    list-style: none;
+    display: inline-block;
+  }
+}
+
+body .desktop-menu a::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #fff;
+  -webkit-transition: width 0.3s;
+  transition: width 0.3s;
+}
+
+body .desktop-menu a:hover::after {
+  width: 100%;
+  -webkit-transition: width 0.3s;
+  transition: width 0.3s;
+}
+
+/************
+MAIN 
+*****/
+main {
+  margin-top: 60px;
+}
+
+main .work-title {
+  margin-top: 100px;
+  background-color: #84A9BF;
+  width: 55%;
+  height: 40px;
+  position: relative;
+}
+
+@media (min-width: 600px) {
+  main .work-title {
+    width: 200px;
+  }
+}
+
+main .work-title::before {
+  content: "WORK";
+  position: absolute;
+  width: 0;
+  left: 20px;
+  top: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 48px;
+  color: white;
+}
+
+main .grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(120px, 1fr))[autofill];
+      grid-template-columns: repeat(autofill, minmax(120px, 1fr));
+  margin: 1em auto;
+  grid-auto-flow: dense;
+  margin-top: 50px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 20px;
+  padding-bottom: 80px;
+  max-width: 1500px;
+}
+
+@media (min-width: 600px) {
+  main .grid {
+    padding: 150px;
+    padding-top: 0;
+  }
+}
+
+@media (min-width: 900px) {
+  main .grid {
+    max-width: 1200px;
+    padding-bottom: 150px;
+  }
+}
+
+@media (min-width: 900px) {
+  main .grid .landscape {
+    -ms-grid-column-span: 2;
+        grid-column-end: span 2;
+  }
+}
+
+main .grid img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/************
+Footer
+*****/
+footer {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background-color: #292929;
+  border-top: 1px solid #CCB08D;
+}
+
+footer .icon-container {
+  width: 40%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 36px;
+  align-items: center;
+}
+
+footer .icon-container a {
+  text-decoration: none;
+  color: #84A9BF;
+  -webkit-transition: color 0.3s ease-in;
+  transition: color 0.3s ease-in;
+}
+
+footer .icon-container a:hover {
+  color: white;
+}
+
+footer .icon-container a i {
+  padding: 0px 40px 0 60px;
+}
+
+@media (min-width: 1200px) {
+  footer .icon-container a i {
+    font-size: 48px;
+  }
+}
+
+footer .text {
+  text-align: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0 15px 0 15px;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+}
+
+@media (min-width: 900px) {
+  footer .text {
+    padding: 2rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+  }
+}
+
+footer .text p {
+  text-align: center;
+  color: #c9c9c9;
+  font-weight: 400;
+}
+
+footer .text .tagline {
+  color: #CCB08D;
+  visibility: hidden;
+  text-align: center;
+}
+
+@media (min-width: 900px) {
+  footer .text .tagline {
+    visibility: visible;
+  }
+}
+/*# sourceMappingURL=work.css.map */

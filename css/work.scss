@@ -1,0 +1,348 @@
+/***
+FONTS 
+*/
+@import url("https://fonts.googleapis.com/css?family=Lato|Old+Standard+TT:400,700");
+
+@import "./variables";
+
+/*** 
+VAR
+*/
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Old Standard tt";
+  box-sizing: border-box;
+  background-color: map-get($colors, primary);
+  height: 100%;
+  width: 100%;
+  font-size: 12px;
+}
+
+/***************
+HEADER
+***/
+
+body {
+  header {
+    z-index: 1;
+    display: block;
+    height: 40px;
+    padding: 1rem;
+    left: 0;
+    background-color: map-get($colors, primary);
+    top: 0;
+    right: 0;
+    position: fixed;
+    border-bottom: 1px solid map-get($colors, secondary);
+  }
+
+  nav {
+    position: fixed;
+
+    z-index: 4;
+
+    a {
+      text-decoration: none;
+      color: map-get($colors, "accent_2");
+      transition: color 0.3 ease;
+      &:hover {
+        color: map-get($colors, "accent_3");
+      }
+    }
+
+    .menuToggle {
+      display: block;
+      position: relative;
+      top: 30px;
+      left: 40px;
+
+      z-index: 1;
+
+      input {
+        display: block;
+        width: 40px;
+        height: 32px;
+        position: absolute;
+        top: -25px;
+        left: -20px;
+        cursor: pointer;
+        opacity: 0; /* hide this */
+        z-index: 2; /* and place it over the hamburger */
+      }
+
+      span {
+        display: block;
+        height: 3px;
+        margin-bottom: 5px;
+        position: relative;
+        background: #ffffff;
+        z-index: 1;
+        transform-origin: 4px 0px;
+        width: 33px;
+        bottom: 20px;
+        right: 20px;
+        transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+          all 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+      }
+
+      .two {
+        width: 24px;
+      }
+
+      .three {
+        width: 14px;
+      }
+
+      span:first-child {
+        transform-origin: 0% 0%;
+      }
+
+      span:nth-last-child(2) {
+        transform-origin: 0% 100%;
+      }
+
+      input:checked ~ span {
+        opacity: 1;
+        transform: rotate(45deg) translate(-4px, -1px);
+        background: map-get($colors, "primary");
+      }
+
+      input:checked ~ span:nth-last-child(3) {
+        opacity: 0;
+        transform: rotate(0deg) scale(0.2, 0.2);
+      }
+      input:checked ~ span:nth-last-child(2) {
+        transform: rotate(-45deg) translate(0, -1px);
+        width: 33px;
+      }
+
+      input:checked ~ ul {
+        transform: none;
+      }
+    }
+
+    .menu {
+      li {
+        padding: 10px 0;
+
+        font-family: "lato";
+        font-size: 1.8rem;
+      }
+      @include for-tablet-landscape-up {
+        margin: -100px 0 0 -60px;
+      }
+
+      position: absolute;
+      width: 300px;
+      margin: -100px 0 0 -60px;
+      padding: 50px;
+      padding-top: 125px;
+
+      background: map-get($colors, "accent");
+      list-style-type: none;
+
+      /* to stop flickering of text in safari */
+      transform-origin: 0% 0%;
+      transform: translate(-100%, 0);
+      transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+    }
+  }
+
+  .logo {
+    display: block;
+    position: absolute;
+    top: 7px;
+    right: 40px;
+    z-index: 1;
+    color: white;
+    font-size: 12px;
+
+    h1 {
+      font-weight: 400;
+    }
+  }
+
+  .desktop-menu {
+    display: none;
+    cursor: pointer;
+    @include for-desktop-up {
+      font-family: "lato";
+      display: flex;
+
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50);
+    }
+
+    a {
+      font-size: 18px;
+      @include for-desktop-up {
+        display: inline-block;
+        text-decoration: none;
+        color: map-get($colors, secondary);
+        padding: 0 25px;
+      }
+
+      li {
+        @include for-desktop-up {
+          list-style: none;
+
+          display: inline-block;
+        }
+      }
+    }
+
+    a::after {
+      content: "";
+      display: block;
+      width: 0;
+      height: 2px;
+      background: #fff;
+      transition: width 0.3s;
+    }
+    a:hover::after {
+      width: 100%;
+      transition: width 0.3s;
+    }
+  }
+}
+
+/************
+MAIN 
+*****/
+
+main {
+  margin-top: 60px;
+  .work-title {
+    margin-top: 100px;
+    background-color: map-get($colors, accent);
+    width: 55%;
+    height: 40px;
+    position: relative;
+
+    @include for-tablet-portrait-up {
+      width: 200px;
+    }
+  }
+
+  .work-title::before {
+    content: "WORK";
+    position: absolute;
+    width: 0;
+    left: 20px;
+    top: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 48px;
+
+    color: white;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(autofill, minmax(120px, 1fr));
+    margin: 1em auto;
+    grid-auto-flow: dense;
+
+    margin-top: 50px;
+
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+
+    padding-bottom: 80px;
+    max-width: 1500px;
+
+    @include for-tablet-portrait-up {
+      padding: 150px;
+      padding-top: 0;
+    }
+
+    @include for-tablet-landscape-up {
+      max-width: 1200px;
+      padding-bottom: 150px;
+    }
+
+    .landscape {
+      @include for-tablet-landscape-up {
+        grid-column-end: span 2;
+      }
+    }
+
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+  }
+}
+
+/************
+Footer
+*****/
+
+footer {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background-color: map-get($colors, primary);
+  border-top: 1px solid map-get($colors, secondary);
+  .icon-container {
+    width: 40%;
+    @include even_justify(center);
+    font-size: 36px;
+    align-items: center;
+
+    a {
+      text-decoration: none;
+      color: map-get($colors, accent);
+      transition: color 0.3s ease-in;
+      &:hover {
+        color: white;
+      }
+      i {
+        padding: 0px 40px 0 60px;
+        @include for-desktop-up {
+          font-size: 48px;
+        }
+      }
+    }
+  }
+
+  .text {
+    text-align: center;
+    justify-content: space-between;
+
+    display: flex;
+    padding: 0 15px 0 15px;
+    align-items: flex-end;
+
+    @include for-tablet-landscape-up {
+      padding: 2rem;
+
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      flex-grow: 1;
+    }
+
+    p {
+      text-align: center;
+      color: #c9c9c9;
+      font-weight: 400;
+    }
+    .tagline {
+      color: map-get($colors, secondary);
+      visibility: hidden;
+      text-align: center;
+      @include for-tablet-landscape-up {
+        visibility: visible;
+      }
+    }
+  }
+}

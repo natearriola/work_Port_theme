@@ -1,0 +1,44 @@
+$colors:(
+"primary": #292929,
+"secondary": #CCB08D,
+"accent": #84A9BF,
+"accent_2": #022840,
+"accent_3": #8C4227
+);
+
+
+
+@mixin even_justify( $justify) {
+    display: flex;
+        justify-content: $justify;
+        align-items: center;
+       
+}
+
+
+
+@mixin for-phone-only {
+    @media (max-width: 599px) {
+      @content;
+    }
+  }
+  @mixin for-tablet-portrait-up {
+    @media (min-width: 600px) {
+      @content;
+    }
+  }
+  @mixin for-tablet-landscape-up {
+    @media (min-width: 900px) {
+      @content;
+    }
+  }
+  @mixin for-desktop-up {
+    @media (min-width: 1200px) {
+      @content;
+    }
+  }
+  @mixin for-big-desktop-up {
+    @media (min-width: 1800px) {
+      @content;
+    }
+  }
