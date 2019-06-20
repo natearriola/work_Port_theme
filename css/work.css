@@ -2,22 +2,13 @@
 FONTS 
 */
 @import url("https://fonts.googleapis.com/css?family=Lato|Old+Standard+TT:400,700");
+/***
+FONTS 
+*/
+@import url("https://fonts.googleapis.com/css?family=Lato|Old+Standard+TT:400,700");
 /*** 
 VAR
 */
-html,
-body {
-  margin: 0;
-  padding: 0;
-  font-family: "Old Standard tt";
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  background-color: #292929;
-  height: 100%;
-  width: 100%;
-  font-size: 12px;
-}
-
 /***************
 HEADER
 ***/
@@ -31,7 +22,6 @@ body header {
   top: 0;
   right: 0;
   position: fixed;
-  border-bottom: 1px solid #CCB08D;
 }
 
 body nav {
@@ -200,7 +190,7 @@ body .desktop-menu a {
   font-size: 18px;
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 900px) {
   body .desktop-menu a {
     display: inline-block;
     text-decoration: none;
@@ -209,7 +199,7 @@ body .desktop-menu a {
   }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 900px) {
   body .desktop-menu a li {
     list-style: none;
     display: inline-block;
@@ -232,11 +222,41 @@ body .desktop-menu a:hover::after {
   transition: width 0.3s;
 }
 
+/*** 
+VAR
+*/
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Old Standard tt";
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: #292929;
+  height: 100%;
+  width: 100%;
+  font-size: 12px;
+}
+
 /************
 MAIN 
 *****/
 main {
   margin-top: 60px;
+  /*
+  .work-title::before {
+    content: "WORK";
+    position: absolute;
+    width: 0;
+    left: 20px;
+    top: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 48px;
+
+    color: white;
+  }
+  */
 }
 
 main .work-title {
@@ -251,18 +271,6 @@ main .work-title {
   main .work-title {
     width: 200px;
   }
-}
-
-main .work-title::before {
-  content: "WORK";
-  position: absolute;
-  width: 0;
-  left: 20px;
-  top: 10px;
-  font-weight: 700;
-  text-transform: uppercase;
-  font-size: 48px;
-  color: white;
 }
 
 main .grid {
